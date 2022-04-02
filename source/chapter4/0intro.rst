@@ -69,9 +69,9 @@
    http://www.computinghistory.org.uk/det/3638/Simon-Lavington/
    https://blog.csdn.net/mightySheldor/article/details/44732029 中文 The Atlas Supervisor
    http://www.whereis.xyz/2019/tech/199/ 虚拟内存技术的前世今生
-   
+
 .. note::
-   
+
    **提供巨大虚拟内存空间的 Atlas Supervisor 操作系统**
 
    两级存储系统在 1940 年就已经存在。1950-1960 年期间，计算机的主存（今天称为 RAM）通常是容量小的磁芯，而辅助存储器通常是容量大的磁鼓。处理器只能对主存寻址来读写数据或执行代码。1960 年前后，位于计算机内存中的应用程序数量和单个程序的体积都在迅速增加，物理内存的容量跟不上应用对内存的需求。应用程序员的一个主要工作是在程序中编写在主存和辅助存储之间移动数据的代码，来扩大应用程序访问的数据量。计算机专家开始考虑能否让计算机自动地移动数据来减轻程序员的编程负担？
@@ -85,6 +85,16 @@
    3. 页面置换算法：检查最无用（least useful）的页，并将其移回二级存储中，这样可以让经常访问的数据驻留在主存中。
 
    计算机科学家给与了 Atlas Supervisor 操作系统高度的评价。Brinch Hansen 认为它是操作系统史上最重大的突破。Simon Lavington 认为它是第一个可识别的现代操作系统。
+
+github多仓库简单教程
+-----------------------
+针对有多个源的情况，可以使用git remote add **origin** url把另外一个远程仓库设置位remote。这里的url是对应远程仓库的链接。
+
+使用git remote -v 可以查看本地已经关联的仓库。使用 git remote rm **origin** 可以删除远程库。
+
+注意， **origin** 是我们给一个远程仓库设置的别名，因此这个是可以任取的而不是一定要使用默认的这个origin。建议大家给不同的远程仓库起不同的名字便于在push,pull等操作之中区分对应的仓库。
+
+之后，对于git push, git fetch，git pull等命令之中大家常用的origin，就需要按需求改为对应的远程仓库别名。我们的实验在github和gitlab之上都有仓库。如果大家有去拉github仓库的需求，可以参考如上设置github新的远程仓库。
 
 实践体验
 -----------------------
@@ -126,9 +136,9 @@
    power_3 [10000/300000power_5 [10000/210000]
    power_5 [20000/210000]
    power_5 [30000/210000]
-   
+
    ...
-   
+
    (mod 998244353)
    Test power_7 OK!
    [kernel] Application exited with code 0
@@ -152,7 +162,7 @@
     ./os/src
     Rust        25 Files    1415 Lines
     Assembly     3 Files      88 Lines
-
+    
     ├── bootloader
     │   ├── rustsbi-k210.bin
     │   └── rustsbi-qemu.bin
@@ -245,7 +255,7 @@
     :linenos:
 
     // os/src/mm/memory_set.rs
-
+    
     lazy_static! {
       pub static ref KERNEL_SPACE: Arc<Mutex<MemorySet>> = Arc::new(Mutex::new(
          MemorySet::new_kernel()
